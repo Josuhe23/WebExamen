@@ -14,6 +14,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::post('/crear_user', [UserController::class, 'store']);
+Route::get('/users', [UserController::class, 'index']);
 //Rutas protegidas por sancturm y autenticacion
 Route::middleware('auth:sanctum')->group(function () {
     // Ruta para cerrar sesión
@@ -21,7 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Ruta para la visualizacion del usuario y contenido de la misma
     Route::get('/user-profile', [UserController::class, 'profile']);
-    Route::get('/users', [UserController::class, 'index']);
+    //Route::get('/users', [UserController::class, 'index']);
     Route::put('/users/{id}', [UserController::class, 'update']); // Para editar usuarios
     Route::delete('/users/{id}', [UserController::class, 'destroy']); // Para eliminar usuarios
     //crear pacientes
